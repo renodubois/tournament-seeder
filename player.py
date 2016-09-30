@@ -9,3 +9,6 @@ class Player:
     def __init__(self, tag, rating):
         self.tag = tag
         self.rating = Rating(rating)
+
+    def __str__(self):
+        return self.tag
