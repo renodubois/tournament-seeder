@@ -2,3 +2,4 @@ __pycache__
 myvenv
 .DS_STORE
 reset.py
+main.py
