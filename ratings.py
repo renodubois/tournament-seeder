@@ -51,7 +51,7 @@ def update_ratings(player_file, tournament_file):
     for player in players:
         json_players.append({'Rating':player.rating.mu, 'Tag':player.tag})
     with open(player_file, 'w') as file:
-        json.dump(json_players, file, sort_keys=True)
+        json.dump(json_players, file, sort_keys=True, indent=4, separators=(',', ': '))
 
 '''
     takes a player file and returns a list sorted by rating
@@ -63,7 +63,6 @@ def sorted_ratings(player_file):
         player_data = json.load(file)
     players = []
     for plr in player_data:
-        print(plr)
         rating_float = float(plr['Rating'])
         players.append(Player(plr['Tag'], rating_float))
     return sorted(players, reverse=True)
