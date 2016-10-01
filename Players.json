@@ -1,1 +1,166 @@
-[{"Rating": 103.35904294238398, "Tag": "Creamy"}, {"Rating": 92.36016734386534, "Tag": "Javi"}, {"Rating": 100.0, "Tag": "Will"}, {"Rating": 100.0, "Tag": "Wiz"}, {"Rating": 99.9979097882148, "Tag": "Sir Fresh"}, {"Rating": 105.84171760824242, "Tag": "Swell"}, {"Rating": 100.0, "Tag": "Krilek"}, {"Rating": 120.20337516869438, "Tag": "Hehe"}, {"Rating": 94.28789844992058, "Tag": "Icekiller72"}, {"Rating": 104.04167999522188, "Tag": "Caviar"}, {"Rating": 95.12362946252377, "Tag": "Strudels"}, {"Rating": 104.07206370194557, "Tag": "alert"}, {"Rating": 86.44346163521872, "Tag": "Squirrel"}, {"Rating": 115.48677392123903, "Tag": "Lewton"}, {"Rating": 100.86885570117289, "Tag": "Happy"}, {"Rating": 99.56417325809761, "Tag": "RenoMO"}, {"Rating": 109.7451541749077, "Tag": "Noodles"}, {"Rating": 93.27332621373522, "Tag": "Starblazer626"}, {"Rating": 87.68981494179867, "Tag": "Raxtus"}, {"Rating": 100.0, "Tag": "Dreamsicle"}, {"Rating": 87.0473725481142, "Tag": "Dirkenhymer"}, {"Rating": 107.04416082035904, "Tag": "PWND"}, {"Rating": 92.98952142039056, "Tag": "Gio"}, {"Rating": 112.07011961278637, "Tag": "UmbrionKnight"}, {"Rating": 101.64163108393647, "Tag": "Floofy"}, {"Rating": 103.4044870110351, "Tag": "Cheese"}, {"Rating": 100.0, "Tag": "Shockhog"}, {"Rating": 92.6952368653023, "Tag": "SwaggyP"}, {"Rating": 99.2426646179221, "Tag": "CHAR"}, {"Rating": 91.47183053022461, "Tag": "Notnilc"}]
+[
+    {
+        "Rating": 117.97352179602599,
+        "Tag": "Creamy"
+    },
+    {
+        "Rating": 92.82700055240973,
+        "Tag": "Javi"
+    },
+    {
+        "Rating": 96.34225814765277,
+        "Tag": "Billy Herrington"
+    },
+    {
+        "Rating": 100.0,
+        "Tag": "Wiz"
+    },
+    {
+        "Rating": 100.89838711194892,
+        "Tag": "Sir Fresh"
+    },
+    {
+        "Rating": 111.89227236838693,
+        "Tag": "Swell"
+    },
+    {
+        "Rating": 100.0,
+        "Tag": "Krilek"
+    },
+    {
+        "Rating": 129.72602737270412,
+        "Tag": "Hehe"
+    },
+    {
+        "Rating": 91.12083494583452,
+        "Tag": "Icekiller72"
+    },
+    {
+        "Rating": 109.09155278530879,
+        "Tag": "Caviar"
+    },
+    {
+        "Rating": 92.39673164182557,
+        "Tag": "Strudels"
+    },
+    {
+        "Rating": 105.30232406493488,
+        "Tag": "alert"
+    },
+    {
+        "Rating": 81.33883375606528,
+        "Tag": "Squirrel"
+    },
+    {
+        "Rating": 123.91956090271245,
+        "Tag": "Lewton"
+    },
+    {
+        "Rating": 100.66955067687184,
+        "Tag": "Happy"
+    },
+    {
+        "Rating": 100.79092672938324,
+        "Tag": "RenoMO"
+    },
+    {
+        "Rating": 112.08922916437595,
+        "Tag": "Noodles"
+    },
+    {
+        "Rating": 93.41749855736118,
+        "Tag": "Starblazer626"
+    },
+    {
+        "Rating": 84.01471801856476,
+        "Tag": "Raxtus"
+    },
+    {
+        "Rating": 100.0,
+        "Tag": "Dreamsicle"
+    },
+    {
+        "Rating": 83.707741075176,
+        "Tag": "Dirkenhymer"
+    },
+    {
+        "Rating": 109.95287429755412,
+        "Tag": "PWND"
+    },
+    {
+        "Rating": 90.49199272449016,
+        "Tag": "Gio"
+    },
+    {
+        "Rating": 118.23406889880656,
+        "Tag": "UmbrionKnight"
+    },
+    {
+        "Rating": 105.70905752013941,
+        "Tag": "Floofy"
+    },
+    {
+        "Rating": 97.97900192150611,
+        "Tag": "Cheese"
+    },
+    {
+        "Rating": 100.0,
+        "Tag": "Shockhog"
+    },
+    {
+        "Rating": 92.97900827236842,
+        "Tag": "SwaggyP"
+    },
+    {
+        "Rating": 96.9460512663403,
+        "Tag": "CHAR"
+    },
+    {
+        "Rating": 92.08578710914371,
+        "Tag": "Notnilc"
+    },
+    {
+        "Rating": 91.92731783676739,
+        "Tag": "Dynamite670"
+    },
+    {
+        "Rating": 102.68322365444213,
+        "Tag": "Rin"
+    },
+    {
+        "Rating": 88.94079175213415,
+        "Tag": "Joush"
+    },
+    {
+        "Rating": 99.49071610983025,
+        "Tag": "DiskEye"
+    },
+    {
+        "Rating": 109.48428284466611,
+        "Tag": "Ron"
+    },
+    {
+        "Rating": 97.03042471751021,
+        "Tag": "Lucas"
+    },
+    {
+        "Rating": 103.281892800167,
+        "Tag": "Cracken"
+    },
+    {
+        "Rating": 98.74013033835833,
+        "Tag": "Ghost"
+    },
+    {
+        "Rating": 97.39396755085535,
+        "Tag": "WinkyFace"
+    },
+    {
+        "Rating": 96.67118168499235,
+        "Tag": "Brett"
+    },
+    {
+        "Rating": 97.61948065772253,
+        "Tag": "texasmathmaster"
+    }
+]
