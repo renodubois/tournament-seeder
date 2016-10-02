@@ -57,12 +57,16 @@ def update_ratings(player_file, tournament_file):
     takes a player file and returns a list sorted by rating
     player_file: filepath to a .json formatted for tournament-seeder
 '''
-def sorted_ratings(player_file):
+def sorted_ratings(player_file, num_ratings=0):
     # Open our player file and grab our players and ratings
     with open(player_file) as file:
         player_data = json.load(file)
     players = []
+    max_plr = len(player_data)
+    if num_ratings > max_plr or num_ratings <= 0:
+        num_ratings = max_plr
     for plr in player_data:
         rating_float = float(plr['Rating'])
         players.append(Player(plr['Tag'], rating_float))
-    return sorted(players, reverse=True)
+    sorted_players = sorted(players, reverse=True)
+    return sorted_players[:int(num_ratings)]

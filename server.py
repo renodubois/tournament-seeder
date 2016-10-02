@@ -9,7 +9,7 @@ redirect, static_file)
 @get('/')
 @jinja2_view('templates/home.html')
 def show_homepage():
-    sorted_players = ratings.sorted_ratings('Players.json')
+    sorted_players = ratings.sorted_ratings('Players.json', 567)
     return {'players':sorted_players}
 
 
