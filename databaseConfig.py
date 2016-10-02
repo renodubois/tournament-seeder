@@ -1,0 +1,5 @@
+address = ""
+user = ""
+password = ""
+databseName = ""
+collectionName = ""
