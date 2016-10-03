@@ -6,6 +6,11 @@ import ratings
 from bottle import (app, Bottle, get, post, response, request, route, run, jinja2_view,
 redirect, static_file)
 
+import mongo
+
+db = mongo.get_mongo_db()
+
+
 @get('/')
 @jinja2_view('templates/home.html')
 def show_homepage():
