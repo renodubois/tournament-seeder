@@ -20,7 +20,6 @@ def update_ratings(player_file, tournament_file):
         rating_float = float(user['Rating'])
         players.append(Player(user['Tag'], rating_float))
 
-
     # Grab a tournament file, read the results and update the players' ratings
     tourney_data = []
     with open(tournament_file) as raw_data:

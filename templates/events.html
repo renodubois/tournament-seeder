@@ -1,0 +1,41 @@
+{% extends "templates/base.html" %}
+
+{% block content %}
+<div class="row">
+    <div class="col-md-10"><h3>Current Events</h3></div>
+    <div class="col-md-2"><a class="btn btn-default {% if not currentUser %}hidden{% endif %}" href="/events/createEvent/" role="button">Create an Event</a></div>
+</div>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>Event Name</th>
+            <th>Date</th>
+            <th>Start Time</th>
+            <th>Location</th>
+            <th>Entry Fee</th>
+            <th>Game</th>
+            <th>Number of Attendees<th>
+            <th></th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for event in currentEvents %}
+        <tr>
+            <th scope="row">{{ event['id'] }}</th>
+            <th>{{ event.name }}</th>
+            <th>{{ event.eventDate}}</th>
+            <th>{{ event.eventTime }}</th>
+            <th>{{ event.location }}</th>
+            <th>${{ event.entryfee }}</th>
+            <th>Super Smash Bros. Melee</th>
+            <th>{{ event.numAttendees }}/{{ event.maxPlayers }}</th>
+            {% if currentUser and not event.userRegistered %}<th><a class="btn btn-default" href="/events/joinEvent/{{ event.id }}" role="button">Register</a></th>{% elif currentUser and event.userRegistered %}<th><a class="btn btn-default" href="/events/leaveEvent/{{ event.id }}" role="button">Unregister</a></th>{% endif %}
+            {% if currentUser and isAdmin %}<th><a class="btn btn-danger" href="/events/deleteEvent/{{ event.id }}" role="button">x</a></th>{% endif %}
+        </tr>
+        {% endfor %}
+    </tbody>
+
+
+{% endblock %}
