@@ -1,20 +1,20 @@
 import argparse
 import socket
 import sys
-import ratings
-import mongo
+from app import ratings
+from app import mongo
 
 from bottle import (app, Bottle, get, post, response, request, route, run, jinja2_view,
 redirect, static_file)
 
 # From old website
-from setup import meleeCharacters, admins
-from users import retrieve_user_info, edit_user_profile, get_mains
-from signup import form_validation, form_insertion
-from authentication import requires_login, check_login
+from config.setup import meleeCharacters, admins
+from app.users import retrieve_user_info, edit_user_profile, get_mains
+from app.signup import form_validation, form_insertion
+from app.authentication import requires_login, check_login
 # from events import (getCurrentEvents, registerForEvent, unregisterFromEvent, eventValidation,
 # eventInsertion, deleteEvent)
-from alerts import load_alerts, save_danger, save_success
+from app.alerts import load_alerts, save_danger, save_success
 # from beaker.middleware import SessionMiddleware
 from beaker.middleware import SessionMiddleware
 

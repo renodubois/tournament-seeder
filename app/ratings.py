@@ -1,7 +1,7 @@
 import json
 import csv
 import trueskill
-from player import Player
+from app.player import Player
 
 
 def update_ratings(player_file, tournament_file):

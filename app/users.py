@@ -1,5 +1,5 @@
 import hashlib
-import mongo
+import app.mongo
 
 
 def update_cur_users(db):
