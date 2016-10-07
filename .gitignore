@@ -3,3 +3,6 @@ myvenv
 .DS_STORE
 reset.py
 tester.py
+.idea/
+Would skip repository src/pychallonge
+src/pip-delete-this-directory.txt
