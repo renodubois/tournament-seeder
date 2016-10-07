@@ -1,7 +1,0 @@
-address = "131.151.163.193:27017"
-user = "michael"
-password = "49713f4853763f662c5267204126652f70556a4e2041766a2e403a2d4d"
-databse_name = "tournament-seeder"
-player_coll = "players"
-results_coll = "results"
-tourny_coll = "tournaments"
