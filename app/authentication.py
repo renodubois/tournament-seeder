@@ -1,8 +1,10 @@
-from bottle import (request, redirect)
 import functools
 import hashlib
-import mongo
-from alerts import save_danger
+
+from bottle import (request, redirect)
+
+from app import mongo
+from app.alerts import save_danger
 
 '''	requiresLogin
 Function wrapper to require a user to be logged in to access a certain page.

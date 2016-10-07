@@ -1,22 +1,13 @@
-import argparse
-import socket
-import sys
-import ratings
-import mongo
-
-from bottle import (app, Bottle, get, post, response, request, route, run, jinja2_view,
-redirect, static_file)
-
-# From old website
-from setup import meleeCharacters, admins
-from users import retrieve_user_info, edit_user_profile, get_mains
-from signup import form_validation, form_insertion
-from authentication import requires_login, check_login
-# from events import (getCurrentEvents, registerForEvent, unregisterFromEvent, eventValidation,
-# eventInsertion, deleteEvent)
-from alerts import load_alerts, save_danger, save_success
-# from beaker.middleware import SessionMiddleware
 from beaker.middleware import SessionMiddleware
+from bottle import (app, get, post, response, request, route, run, jinja2_view,
+                    redirect, static_file)
+
+from app import mongo
+from app.alerts import load_alerts, save_danger, save_success
+from app.authentication import check_login
+from app.signup import form_validation, form_insertion
+from app.users import retrieve_user_info, edit_user_profile, get_mains
+from config.setup import melee_characters
 
 db = mongo.get_mongo_db()
 
@@ -115,7 +106,7 @@ def show_profile(username):
         userInfo['ownsProfile'] = True
     if request.get_cookie('current_user'):
         userInfo['currentUser'] = request.get_cookie('current_user')
-    userInfo['characters'] = meleeCharacters
+    userInfo['characters'] = melee_characters
     userInfo['charMains'] = get_mains(db, username)
     return userInfo
 
