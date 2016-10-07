@@ -24,7 +24,7 @@ def requires_login(func):
 
 def check_login(db, username, password):
     """
-    Checks if the username and password the user entered to log in is
+    Checks if the username and password the user entered to log in is correct
     :param mongodb db: mongo database connection object
     :param string username: username of player to authenticate
     :param string password: password of player to authenticate

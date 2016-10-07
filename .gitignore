@@ -3,4 +3,7 @@ myvenv
 .DS_STORE
 reset.py
 tester.py
+.idea/
+src/
 databaseConfig.py
+main.py
