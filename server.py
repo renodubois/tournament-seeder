@@ -1,28 +1,25 @@
-import argparse
-import socket
-import sys
+# Import Bottle and related functions,
+from bottle import (app, get, post, response, request, route, run, jinja2_view,
+                    redirect, static_file)
+# library imports
+from beaker.middleware import SessionMiddleware
+# local imports
 from app import ratings
 from app import mongo
-
-from bottle import (app, Bottle, get, post, response, request, route, run, jinja2_view,
-redirect, static_file)
-
-# From old website
 from config.setup import meleeCharacters, admins
 from app.users import retrieve_user_info, edit_user_profile, get_mains
 from app.signup import form_validation, form_insertion
 from app.authentication import requires_login, check_login
-# from events import (getCurrentEvents, registerForEvent, unregisterFromEvent, eventValidation,
-# eventInsertion, deleteEvent)
 from app.alerts import load_alerts, save_danger, save_success
-# from beaker.middleware import SessionMiddleware
-from beaker.middleware import SessionMiddleware
+
 
 db = mongo.get_mongo_db()
+
 
 @route('/assets/<path:path>')
 def static(path):
     return static_file(path, root='assets')
+
 
 # @get('/')
 # @jinja2_view('templates/home.html')
@@ -37,7 +34,7 @@ def static(path):
 def index():
     # print(request.get_cookie('current_user'))
     if request.get_cookie('current_user'):
-        return {'currentUser':request.get_cookie('current_user')}
+        return {'currentUser': request.get_cookie('current_user')}
     return {}
 
 
@@ -76,7 +73,7 @@ def validate_login():
 @load_alerts
 def show_signup():
     if request.get_cookie('current_user'):
-        return {'currentUser':request.get_cookie('current_user')}
+        return {'currentUser': request.get_cookie('current_user')}
     return {}
 
 
@@ -135,6 +132,7 @@ def change_profile(username):
             redirect('/users/{}/'.format(username))
     else:
         redirect('/users/{}/'.format(username))
+
 
 sessionOptions = {
     'session.type': 'cookie',
