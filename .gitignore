@@ -5,3 +5,4 @@ reset.py
 tester.py
 .idea/
 src/
+databaseConfig.py
