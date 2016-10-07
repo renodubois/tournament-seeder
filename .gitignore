@@ -7,3 +7,4 @@ tester.py
 src/
 databaseConfig.py
 main.py
+.idea/
