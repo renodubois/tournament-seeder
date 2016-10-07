@@ -2,10 +2,10 @@ import argparse
 import socket
 import sys
 import ratings
+import mongo
 
 from bottle import (app, Bottle, get, post, response, request, route, run, jinja2_view,
 redirect, static_file)
-
 
 # From old website
 from setup import meleeCharacters, admins
@@ -18,16 +18,11 @@ from alerts import load_alerts, save_danger, save_success
 # from beaker.middleware import SessionMiddleware
 from beaker.middleware import SessionMiddleware
 
-
-import mongo
-
 db = mongo.get_mongo_db()
-
 
 @route('/assets/<path:path>')
 def static(path):
     return static_file(path, root='assets')
-
 
 # @get('/')
 # @jinja2_view('templates/home.html')
@@ -140,7 +135,6 @@ def change_profile(username):
             redirect('/users/{}/'.format(username))
     else:
         redirect('/users/{}/'.format(username))
-
 
 sessionOptions = {
     'session.type': 'cookie',

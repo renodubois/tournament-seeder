@@ -1,5 +1,4 @@
 import json
-
 from pymongo import MongoClient
 from databaseConfig import address, password, user, databse_name, player_coll, results_coll, tourny_coll
 
@@ -13,10 +12,13 @@ class DataBaseInfoException(Exception):
 
 
 def get_mongo_db():
+<<<<<<< HEAD
     """
     Initializes a connection to mongo and returns the database object
     :return: database object to be used for mongo connections
     """
+=======
+>>>>>>> new-structure
     # The password goes here and needs to be filled in with the proper pass
     # We're keeping sensitive info out of github
     # This is the address that mongo is at
@@ -34,11 +36,14 @@ def get_mongo_db():
 
 
 def get_all_players(db):
+<<<<<<< HEAD
     """
     Returns all players in the players collection
     :param mongodb db: mongo database connection object
     :return: list of all players in the players collection
     """
+=======
+>>>>>>> new-structure
     player_list = []
     for doc in db[player_coll].find():
         player_list.append(doc)
@@ -150,7 +155,4 @@ def get_result(db, key):
             raise DataBaseInfoException(err)
         result = doc
     return result
-
-
-
 
