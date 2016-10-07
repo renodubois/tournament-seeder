@@ -3,12 +3,13 @@ import csv
 import trueskill
 from player import Player
 
-'''
-    takes a player file and a tournament file and updates the player's ratings based on the tournament results
-    player_file: filepath to a .json file formatted for tournament-seeder
-    tournament_file: filepath to a .csv results file that updates ratings
-'''
+
 def update_ratings(player_file, tournament_file):
+    """
+        takes a player file and a tournament file and updates the player's ratings based on the tournament results
+        player_file: filepath to a .json file formatted for tournament-seeder
+        tournament_file: filepath to a .csv results file that updates ratings
+    """
     # temporary tournament file for test, will use command line later
     # let's import our json of players and their ratings
     players = []
@@ -19,7 +20,6 @@ def update_ratings(player_file, tournament_file):
     for user in user_data:
         rating_float = float(user['Rating'])
         players.append(Player(user['Tag'], rating_float))
-
 
     # Grab a tournament file, read the results and update the players' ratings
     tourney_data = []
@@ -53,11 +53,12 @@ def update_ratings(player_file, tournament_file):
     with open(player_file, 'w') as file:
         json.dump(json_players, file, sort_keys=True, indent=4, separators=(',', ': '))
 
-'''
-    takes a player file and returns a list sorted by rating
-    player_file: filepath to a .json formatted for tournament-seeder
-'''
+
 def sorted_ratings(player_file, num_ratings=0):
+    """
+        takes a player file and returns a list sorted by rating
+        player_file: filepath to a .json formatted for tournament-seeder
+    """
     # Open our player file and grab our players and ratings
     with open(player_file) as file:
         player_data = json.load(file)
