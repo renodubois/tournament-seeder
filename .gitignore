@@ -6,3 +6,4 @@ tester.py
 .idea/
 src/
 databaseConfig.py
+main.py
