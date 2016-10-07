@@ -3,3 +3,4 @@ myvenv
 .DS_STORE
 reset.py
 main.py
+.idea/
