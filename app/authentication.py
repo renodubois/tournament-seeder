@@ -1,7 +1,7 @@
 from bottle import (request, redirect)
 import functools
 import hashlib
-import app.mongo
+from app import mongo
 from app.alerts import save_danger
 
 '''	requiresLogin

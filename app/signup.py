@@ -1,5 +1,6 @@
 import hashlib
-import app.mongo
+from app import mongo
+
 
 
 def form_validation(db, form):
