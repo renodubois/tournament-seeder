@@ -1,9 +1,10 @@
-app
 Beaker==1.8.0
 bottle==0.12.9
+iso8601==0.1.11
 Jinja2==2.8
 MarkupSafe==0.23
 pkg-resources==0.0.0
+-e git+http://github.com/russ-/pychallonge@bc202d7140cb08d11d345564f721c2f57129b84f#egg=pychallonge
 pymongo==3.3.0
 six==1.10.0
 trueskill==0.4.4
