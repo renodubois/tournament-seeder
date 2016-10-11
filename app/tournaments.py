@@ -18,14 +18,10 @@ def convert_matches(match_data, tourney_url):
     user_data = challonge.participants.index(tourney_url)
     # Iterate through match_data, call get_challonge_name to get names of players.
     for match in match_data:
-        # Temp object to use each iteration
+        # Temp object to use each iteration, grab player 1 and player 2 names
         temp = dict(player1=get_challonge_name(match['player1-id'], tourney_url, user_data),
                     player2=get_challonge_name(match['player2-id'], tourney_url, user_data),
                     winner="")
-        # Get player 1's name
-        # temp['player1'] = get_challonge_name(match['player1-id'], tourney_url)
-        # Get player 2's name
-        # temp['player2'] = get_challonge_name(match['player2-id'], tourney_url)
         # Determine the winner
         if match['scores-csv'][0] > match['scores-csv'][2]:
             temp['winner'] = "player1"
