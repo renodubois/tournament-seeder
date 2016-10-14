@@ -8,7 +8,7 @@ from app import ratings
 from app import mongo
 from config.errors import UserNotExist
 from config.setup import smash4_characters, admins
-from app.users import retrieve_user_info, edit_user_profile, get_mains
+from app.users import retrieve_user_info, edit_user_profile, get_mains, invite_challonge_account, check_authentication
 from app.signup import form_validation, form_insertion
 from app.authentication import requires_login, check_login
 from app.alerts import load_alerts, save_danger, save_success
@@ -157,6 +157,57 @@ def change_profile(username):
     else:
         redirect('/users/{}/'.format(username))
 
+
+@get('/users/<username>/connect_challonge/')
+@jinja2_view('templates/connect_challonge.html')
+@load_alerts
+def connect_challonge(username):
+    if username != request.get_cookie('current_user'):
+        redirect('/login/')
+    return {'current_user': request.get_cookie('current_user')}
+
+
+@post('/users/<username>/connect_challonge/')
+@load_alerts
+def post_connect_challonge(username):
+    challonge_name = request.forms['challonge-username']
+    username = request.get_cookie('current_user')
+    user = mongo.get_player(db, username)
+    # if user['is_verified']:
+    #     save_danger('You already have a challonge account connected!')
+    #     redirect('/users/{}/'.format(username))
+    from urllib.error import HTTPError
+    try:
+        if invite_challonge_account(db, username, challonge_name):
+            save_success('We have successfully sent an invitation on challonge!')
+            redirect('/users/{}/connect_challonge/'.format(username))
+    except HTTPError:
+        save_danger('There was a problem sending an invite to {},'
+                    'are you sure that is correct?'.format(challonge_name))
+        redirect('/users/{}/connect_challonge'.format(username))
+    save_danger('There was a problem creating your challonge invitation')
+    redirect('/users/{}/connect_challonge/'.format(username))
+
+
+@get('/users/<username>/test_challonge/')
+@load_alerts
+def test_challonge(username):
+    username = request.get_cookie('current_user')
+    user = mongo.get_player(db, username)
+    from urllib.error import HTTPError
+    try:
+        if not user:
+            save_danger('There was a problem, please try again later')
+            redirect('/')
+        if check_authentication(db, username, user['challonge_name']):
+            save_success("Successfully added challonge account")
+            redirect('/users/{}/'.format(username))
+        else:
+            save_danger('There was a problem connecting your account')
+            redirect('/users/{}/connect_challonge/'.format(username))
+    except HTTPError:
+        save_danger('There was a problem checking your challonge verification')
+        redirect('/users/{}/connect_challonge/'.format(username))
 
 sessionOptions = {
     'session.type': 'cookie',
