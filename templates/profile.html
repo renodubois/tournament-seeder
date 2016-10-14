@@ -6,7 +6,7 @@
         <h4>Name: {{ fname }} {{ lname }}</h4>
         <h4>Location: {{ location }}</h4>
         <h4>Ranking: {{ ranking | default("Not yet ranked!") }}
-        <h4>Character Mains: {% for main in charMains %} <li>{{ main }}</li> {% endfor %}</h4>
+        <h4>Character Mains: {% for main in char_mains %} <li>{{ main }}</li> {% endfor %}</h4>
     </div>
     <div class="col-md-8 {% if not owns_profile %}hidden{% endif %}">
         <h3> Edit your Profile </h3>
