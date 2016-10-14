@@ -26,14 +26,14 @@ def retrieve_user_info(db, username):
 
     user_info = {}
     user = mongo.get_player(db, username)
-    if 'fname' in user_info and 'fname' in user:
+    try:
         user_info['fname'] = user['fname']
         user_info['lname'] = user['lname']
         user_info['location'] = user['location']
         if 'ranking' in user:
             user_info['ranking'] = user['ranking']
         return user_info
-    else:
+    except TypeError:
         raise UserNotExist
 
 

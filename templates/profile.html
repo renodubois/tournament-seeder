@@ -1,7 +1,6 @@
 {% extends "templates/base.html" %}
 
 {% block content %}
-{% if user_exists %}
     <div class="info col-md-4">
         <h2>{{ username }}</h2>
         <h4>Name: {{ fname }} {{ lname }}</h4>
@@ -67,6 +66,4 @@
                 <button type="submit" class="btn btn-default">Submit Changes</button>
         </form>
     </div>
-{% else %}<div class="info col-md-4"><h1>User Doesn't Exist!</h1></div>{% endif %}
-
 {% endblock %}

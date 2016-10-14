@@ -33,7 +33,7 @@ def static(path):
 @jinja2_view("templates/index.html")
 @load_alerts
 def index():
-    # print(request.get_cookie('current_user'))
+    # Grabs the current_user cookie and returns it to our template, for use in navbar if logged in.
     if request.get_cookie('current_user'):
         return {'current_user': request.get_cookie('current_user')}
     return {}
@@ -51,8 +51,11 @@ def show_login():
 
 @post('/login/')
 def validate_login():
+    # Grab the form submitted in the POST request.
     login_form = request.forms
+    # Run the check_login function, and see if any errors were returned.
     errors = check_login(db, login_form['username'], login_form['password'])
+    # If there were some, save them to dange alerts and redirect them back to login.
     if errors:
         for i in errors:
             save_danger(i)
@@ -80,8 +83,11 @@ def show_signup():
 
 @post('/signup/')
 def validate_signup():
+    # Grabing the submitted POST form
     signup_form = request.forms
+    # Checking for errors using form_validation
     errors = form_validation(db, signup_form)
+    # if they have errors, save them as danger alerts and redirect back to signup
     if errors:
         for i in errors:
             save_danger(i)
@@ -102,20 +108,27 @@ def log_out():
     redirect('/')
 
 
+# User doesn't exist
+@get('/usernotfound/')
+@jinja2_view("templates/user_not_found.html")
+@load_alerts
+def user_not_found():
+    return {}
+
+
 # Profile page
 @get('/users/<username>/')
 @jinja2_view("templates/profile.html")
 @load_alerts
 def show_profile(username):
+    user_info = {}
+    # Try and grab a user's info from the database
     try:
         user_info = retrieve_user_info(db, username)
+    # If retrieve_user_info excepts an error, return user_exists as false
     except UserNotExist:
-        user_info = {}
-        if request.get_cookie('current_user'):
-            user_info['current_user'] = request.get_cookie('current_user')
-        user_info['user_exists'] = False
-        return user_info
-    user_info['user_exists'] = True
+        redirect('/usernotfound/')
+        return {}
     user_info['username'] = username
     if request.get_cookie('current_user') == username:
         user_info['owns_profile'] = True
