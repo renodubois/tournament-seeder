@@ -1,59 +1,59 @@
 Select an Option
-Mario 
-Donkey Kong
-Link 
-Samus 
-Kirby 
-Fox 
-Pikachu 
-Pit 
-Villager 
-Mega Man 
-Wii Fit Trainer 
-Olimar
-Luigi 
-Peach 
-Toon Link 
-Sonic the Hedgehog 
-Marth 
-Rosalina & Luma 
-Zelda 
-King Dedede 
-Lucario 
-Little Mac 
-Diddy Kong 
-Zero Suit Samus 
-Sheik 
-Yoshi 
-Charizard 
-Greninja 
-Ike 
-Mii Fighters 
-Palutena 
-Pac-Man 
-Captain Falcon 
-Lucina 
-Robin 
-Meta Knight 
-Shulk 
-Game & Watch 
-Wario 
+Bayonetta
 Bowser Jr. 
-Ganondorf 
-Ness 
-Falco 
-Dark Pit 
-Dr. Mario 
-R.O.B. 
-Duck Hunt 
-Jigglypuff
+Captain Falcon 
+Charizard 
 Cloud
 Corrin
-Mewtwo
+Dark Pit 
+Diddy Kong 
+Donkey Kong
+Dr. Mario 
+Duck Hunt 
+Falco 
+Fox 
+Game & Watch 
+Ganondorf 
+Greninja 
+Ike 
+Jigglypuff
+King Dedede 
+Kirby 
+Link 
+Little Mac 
+Lucario 
 Lucas
-Bayonetta
-Ryu
+Lucina 
+Luigi 
+Mario 
+Marth 
+Mega Man 
+Meta Knight 
+Mewtwo
 Mii Fighter
+Mii Fighters 
 Mii Gunner
 Mii Swordfighter
+Ness 
+Olimar
+Pac-Man 
+Palutena 
+Peach 
+Pikachu 
+Pit 
+R.O.B. 
+Robin 
+Rosalina & Luma 
 Roy
+Ryu
+Samus
+Sheik 
+Shulk 
+Sonic
+Toon Link 
+Villager 
+Wario 
+Wii Fit Trainer 
+Yoshi 
+Zelda 
+Zero Suit Samus 
