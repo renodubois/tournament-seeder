@@ -15,7 +15,7 @@ To run the website locally, run the following inside the working directory.
 `$ python3.5 server.py`
 
 ## Contributing
-If you're looking to help with the code, please fork the repository, create a feature branch on your repo, then pull request back up to our code.
+If you're looking to help with the code, please fork the repository, create a feature branch on your repo, then pull request back up to our code. **Please use the develop branch for all feature requests, this is the most up to date branch.**
 
 Check out the [Projects](https://github.com/renodubois/tournament-seeder/projects) page for information on what we need done. 
 
