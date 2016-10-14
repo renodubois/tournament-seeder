@@ -1,6 +1,6 @@
 import json
 from pymongo import MongoClient
-from config.databaseConfig import address, password, user, databse_name, player_coll, results_coll, tourny_coll
+from config.databaseConfig import address, password, user, database_name, player_col, results_col, tourney_col
 
 
 class DataBaseInfoException(Exception):
@@ -18,7 +18,7 @@ def get_mongo_db():
     """
     mongouri = "mongodb://{0}:{1}@{2}".format(user, password, address)
     client = MongoClient(mongouri)
-    db = client[databse_name]
+    db = client[database_name]
     return db
     # Here are some examples of how to use the class
     # cursor = coll.find()
@@ -35,7 +35,7 @@ def get_all_players(db):
     :return: list of all players in the players collection
     """
     player_list = []
-    for doc in db[player_coll].find():
+    for doc in db[player_col].find():
         player_list.append(doc)
     return player_list
 
@@ -53,7 +53,7 @@ def get_player(db, username):
     """
     result = None
     one_doc = False
-    for doc in db[player_coll].find({"username": username}):
+    for doc in db[player_col].find({"username": username}):
         if one_doc:
             err = "There should only be one name, please check database"
             raise DataBaseInfoException(err)
@@ -68,7 +68,7 @@ def insert_player(db, player_dict):
     :param player_dict: information that needs to be inserted
     :return: None
     """
-    db[player_coll].insert_one(player_dict)
+    db[player_col].insert_one(player_dict)
 
 
 def update_player(db, player_username, new_player):
@@ -79,7 +79,7 @@ def update_player(db, player_username, new_player):
     :param new_player: new player object to replace player
     :return: None
     """
-    db[player_coll].replace_one(player_username, new_player)
+    db[player_col].replace_one(player_username, new_player)
 
 
 def get_all_tournies(db):
@@ -89,7 +89,7 @@ def get_all_tournies(db):
     :return: list of tournaments in the tournament collection
     """
     tourny_list = []
-    for doc in db[tourny_coll].find():
+    for doc in db[tourney_col].find():
         tourny_list.append(doc)
     return tourny_list
 
@@ -107,7 +107,7 @@ def get_tourny(db, identifier):
     result = None
     one_doc = False
     identifying_field = "date"
-    for doc in db[tourny_coll].find({identifying_field: identifier}):
+    for doc in db[tourney_col].find({identifying_field: identifier}):
         if one_doc:
             err = "There should only be one tournament, please check database"
             raise DataBaseInfoException(err)
@@ -122,7 +122,7 @@ def get_all_results(db):
     :return list: returns a list of all results in the results collection
     """
     result_list = []
-    for doc in db[results_coll].find():
+    for doc in db[results_col].find():
         result_list.append(doc)
     return result_list
 
@@ -139,7 +139,7 @@ def get_result(db, key):
     """
     result = None
     one_doc = False
-    for doc in db[results_coll].find({"key": key}):
+    for doc in db[results_col].find({"key": key}):
         if one_doc:
             err = "There should only be one result, please check database"
             raise DataBaseInfoException(err)
