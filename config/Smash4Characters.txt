@@ -1,0 +1,59 @@
+Select an Option
+Mario 
+Donkey Kong
+Link 
+Samus 
+Kirby 
+Fox 
+Pikachu 
+Pit 
+Villager 
+Mega Man 
+Wii Fit Trainer 
+Olimar
+Luigi 
+Peach 
+Toon Link 
+Sonic the Hedgehog 
+Marth 
+Rosalina & Luma 
+Zelda 
+King Dedede 
+Lucario 
+Little Mac 
+Diddy Kong 
+Zero Suit Samus 
+Sheik 
+Yoshi 
+Charizard 
+Greninja 
+Ike 
+Mii Fighters 
+Palutena 
+Pac-Man 
+Captain Falcon 
+Lucina 
+Robin 
+Meta Knight 
+Shulk 
+Game & Watch 
+Wario 
+Bowser Jr. 
+Ganondorf 
+Ness 
+Falco 
+Dark Pit 
+Dr. Mario 
+R.O.B. 
+Duck Hunt 
+Jigglypuff
+Cloud
+Corrin
+Mewtwo
+Lucas
+Bayonetta
+Ryu
+Mii Fighter
+Mii Gunner
+Mii Swordfighter
+Roy

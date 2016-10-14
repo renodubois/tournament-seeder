@@ -6,7 +6,7 @@ from beaker.middleware import SessionMiddleware
 # local imports
 from app import ratings
 from app import mongo
-from config.setup import meleeCharacters, admins
+from config.setup import smash4Characters, admins
 from app.users import retrieve_user_info, edit_user_profile, get_mains
 from app.signup import form_validation, form_insertion
 from app.authentication import requires_login, check_login
