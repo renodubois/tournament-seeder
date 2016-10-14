@@ -113,6 +113,8 @@ def log_out():
 @jinja2_view("templates/user_not_found.html")
 @load_alerts
 def user_not_found():
+    if request.get_cookie('current_user'):
+        return {'current_user': request.get_cookie('current_user')}
     return {}
 
 
