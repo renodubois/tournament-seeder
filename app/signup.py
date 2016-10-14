@@ -63,7 +63,11 @@ def form_insertion(db, form):
             'password': password,
             'fname': form['fname'], 'lname': form['lname'],
             'location': form['location'],
-            'mains': []}
+            'mains': [],
+            'is_validated': False,
+            'challonge_name': '',
+            'tournament_authentication_name': ''
+            }
 
     mongo.insert_player(db, user)
 

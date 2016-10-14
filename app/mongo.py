@@ -79,7 +79,8 @@ def update_player(db, player_username, new_player):
     :param new_player: new player object to replace player
     :return: None
     """
-    db[player_col].replace_one(player_username, new_player)
+    player = {"username": player_username}
+    db[player_col].replace_one(player, new_player)
 
 
 def get_all_tournies(db):
@@ -146,3 +147,22 @@ def get_result(db, key):
         result = doc
     return result
 
+
+def check_for_previous(db, username, challonge_name):
+    players = db[player_col].find({"challonge_name": challonge_name})
+    if players.count() == 2:
+        new_player = None
+        challonge_player = None
+        for doc in players:
+            if doc['username']:
+                if not new_player:
+                    new_player = doc
+                else:
+                    return "two_users"
+            else:
+                challonge_player = doc
+        for key, value in challonge_player:
+            if value:
+                new_player[key] = value
+        return new_player
+    return False

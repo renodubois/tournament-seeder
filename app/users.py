@@ -1,6 +1,9 @@
 import hashlib
+from uuid import uuid4
+
 from app import mongo
 from config.errors import UserNotExist
+
 
 def update_cur_users(db):
     """
@@ -14,6 +17,7 @@ def update_cur_users(db):
         users.append(user['username'])
     return users
 
+from app import challonge_funcs
 
 def retrieve_user_info(db, username):
     """
@@ -129,7 +133,7 @@ def edit_user_profile(db, form, username):
 
     print(len(errors))
     if len(errors) == 0:
-        mongo.update_player(db, {"username": player['username']}, new_player)
+        mongo.update_player(db, player['username'], new_player)
     return errors
 
 
@@ -145,3 +149,38 @@ def get_mains(db, username):
     for main in user['mains']:
         mains.append(main)
     return mains
+
+
+def invite_challonge_account(db, username, challonge_name):
+    player = mongo.get_player(db, username)
+
+    if 'tournament_authentication_name' not in player:
+        player['tournament_authentication_name'] = ''
+    if not player['tournament_authentication_name']:
+        tournament_name = str(uuid4()).replace('-', '_')
+        tournament = challonge_funcs.create_tournament(tournament_name)
+        challonge_funcs.add_participant(tournament['id'], challonge_name)
+        player['tournament_authentication_name'] = tournament_name
+        player['is_verified'] = False
+        player['challonge_name'] = challonge_name
+        mongo.update_player(db, username, player)
+        return True
+    return False
+
+
+def check_authentication(db, username, challonge_name):
+    player = mongo.get_player(db, username)
+    name = player['tournament_authentication_name']
+    if challonge_funcs.check_participation(name, challonge_name):
+        result = mongo.check_for_previous(db, username, challonge_name)
+        if result == 'two_users':
+            return False
+        if result:
+            player = result
+        player['is_verified'] = True
+        player['tournament_authentication_name'] = ''
+        mongo.update_player(db, username, player)
+        challonge_funcs.delete_tournament(name)
+        return True
+    return False
+
