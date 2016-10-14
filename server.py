@@ -6,6 +6,7 @@ from beaker.middleware import SessionMiddleware
 # local imports
 from app import ratings
 from app import mongo
+from config.errors import UserNotExist
 from config.setup import smash4_characters, admins
 from app.users import retrieve_user_info, edit_user_profile, get_mains
 from app.signup import form_validation, form_insertion
@@ -106,15 +107,23 @@ def log_out():
 @jinja2_view("templates/profile.html")
 @load_alerts
 def show_profile(username):
-    userInfo = retrieve_user_info(db, username)
-    userInfo['username'] = username
+    try:
+        user_info = retrieve_user_info(db, username)
+    except UserNotExist:
+        user_info = {}
+        if request.get_cookie('current_user'):
+            user_info['current_user'] = request.get_cookie('current_user')
+        user_info['user_exists'] = False
+        return user_info
+    user_info['user_exists'] = True
+    user_info['username'] = username
     if request.get_cookie('current_user') == username:
-        userInfo['owns_profile'] = True
+        user_info['owns_profile'] = True
     if request.get_cookie('current_user'):
-        userInfo['current_user'] = request.get_cookie('current_user')
-    userInfo['characters'] = smash4_characters
-    userInfo['char_mains'] = get_mains(db, username)
-    return userInfo
+        user_info['current_user'] = request.get_cookie('current_user')
+    user_info['characters'] = smash4_characters
+    user_info['char_mains'] = get_mains(db, username)
+    return user_info
 
 
 # Submitting a profile change
