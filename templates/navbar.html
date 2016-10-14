@@ -20,8 +20,8 @@
 			</ul>
 			<div class="text-uppercase">
 				<ul class="nav navbar-nav navbar-right">
-					<li><a href="/{% if currentUser %}users/{{currentUser}}/{% else %}signup/{% endif %}">{{ currentUser | default('Sign Up') }}</a></li>
-                    <li><a href="/{% if currentUser %}logout{% else %}login{% endif %}/">{% if currentUser %} Log Out {% else %} Log In {% endif  %}</a></li>
+					<li><a href="/{% if current_user %}users/{{current_user}}/{% else %}signup/{% endif %}">{{ current_user | default('Sign Up') }}</a></li>
+                    <li><a href="/{% if current_user %}logout{% else %}login{% endif %}/">{% if current_user %} Log Out {% else %} Log In {% endif  %}</a></li>
 				</ul>
 			</div>
 			</form>

@@ -6,7 +6,7 @@ from beaker.middleware import SessionMiddleware
 # local imports
 from app import ratings
 from app import mongo
-from config.setup import smash4Characters, admins
+from config.setup import smash4_characters, admins
 from app.users import retrieve_user_info, edit_user_profile, get_mains
 from app.signup import form_validation, form_insertion
 from app.authentication import requires_login, check_login
@@ -34,7 +34,7 @@ def static(path):
 def index():
     # print(request.get_cookie('current_user'))
     if request.get_cookie('current_user'):
-        return {'currentUser': request.get_cookie('current_user')}
+        return {'current_user': request.get_cookie('current_user')}
     return {}
 
 
@@ -73,7 +73,7 @@ def validate_login():
 @load_alerts
 def show_signup():
     if request.get_cookie('current_user'):
-        return {'currentUser': request.get_cookie('current_user')}
+        return {'current_user': request.get_cookie('current_user')}
     return {}
 
 
@@ -109,11 +109,11 @@ def show_profile(username):
     userInfo = retrieve_user_info(db, username)
     userInfo['username'] = username
     if request.get_cookie('current_user') == username:
-        userInfo['ownsProfile'] = True
+        userInfo['owns_profile'] = True
     if request.get_cookie('current_user'):
-        userInfo['currentUser'] = request.get_cookie('current_user')
-    userInfo['characters'] = smash4Characters
-    userInfo['charMains'] = get_mains(db, username)
+        userInfo['current_user'] = request.get_cookie('current_user')
+    userInfo['characters'] = smash4_characters
+    userInfo['char_mains'] = get_mains(db, username)
     return userInfo
 
 

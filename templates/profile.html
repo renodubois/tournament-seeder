@@ -9,7 +9,7 @@
     <h4>Ranking: {{ ranking | default("Not yet ranked!") }}
     <h4>Character Mains: {% for main in charMains %} <li>{{ main }}</li> {% endfor %}</h4>
 </div>
-<div class="col-md-8 {% if not ownsProfile %}hidden{% endif %}">
+<div class="col-md-8 {% if not owns_profile %}hidden{% endif %}">
     <h3> Edit your Profile </h3>
     <form action="/users/{{ username }}/" method="post">
         <div class="form-group">
@@ -30,7 +30,7 @@
         </div>
         <div class="form-group">
             <div class="row">
-                <div class="{% if charMains %} col-md-6 {% else %} col-md-12 {% endif %}">
+                <div class="{% if char_mains %} col-md-6 {% else %} col-md-12 {% endif %}">
                     <label for="add-main">Add a main</label>
                     <select class="form-control" name="add-main">
                         {% for char in characters %}
@@ -38,11 +38,11 @@
                         {% endfor %}
                     </select>
                 </div>
-                <div class="{% if charMains %} col-md-6 {% else %} hidden {% endif %}">
+                <div class="{% if char_mains %} col-md-6 {% else %} hidden {% endif %}">
                     <label for="del-main">Delete a main</label>
                     <select class="form-control" name="del-main">
                         <option value="Nothing">Nothing</option>
-                        {% for main in charMains %}
+                        {% for main in char_mains %}
                         <option value="{{ main }}">{{ main }}</option>
                         {% endfor %}
                     </select>
