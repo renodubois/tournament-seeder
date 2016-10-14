@@ -112,7 +112,7 @@ def show_profile(username):
         userInfo['ownsProfile'] = True
     if request.get_cookie('current_user'):
         userInfo['currentUser'] = request.get_cookie('current_user')
-    userInfo['characters'] = meleeCharacters
+    userInfo['characters'] = smash4Characters
     userInfo['charMains'] = get_mains(db, username)
     return userInfo
 
