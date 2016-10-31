@@ -1,4 +1,4 @@
-import ratings
+from app import ratings
 
 if __name__ == '__main__':
     ratings.update_ratings('Players.json', 'rolla_weekly_1.csv')
