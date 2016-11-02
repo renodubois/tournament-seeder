@@ -4,3 +4,5 @@ myvenv
 reset.py
 main.py
 .idea/
+config/database_config.py
+config/challonge_config.py
