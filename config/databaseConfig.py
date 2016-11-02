@@ -1,0 +1,7 @@
+address = "131.151.163.193:27017"
+user = "michael"
+password = "YLW3QQDPPOHGGHMZJZPWFHBFLUWG96YHZMAOV4GQ6Y4DYYGCFAELDLCNTHRCZ2HKZ3L8XHSCV9C9L5X5EA3CWOPGW234AV7DI6O4AOVMP1C9Y4L059HMB5THJ44CKGVQ"
+database_name = "tournament-seeder"
+player_coll = "players"
+results_coll = "results"
+tourney_coll = "tournaments"

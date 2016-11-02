@@ -1,23 +1,21 @@
-from config.challongeConfig import (reno_username, reno_api_key)
+from config.setup import (api_user, api_key)
 import challonge
 
 
-def convert_matches(tourney_url):
+def convert_matches(match_data, tourney_url):
     """
     Converts data given to the Challonge API to a format easier to enter into our database.
+    :param match_data: The dictionary given by the Challonge API containing match data for a tournament
     :param tourney_url: The ID of the tournament, needed to retrieve usernames.
     :return: A list of dicts, each one representing a match. The matches have 3 fields,
     player1 (string), player2 (string), and winner (string).
     """
     # Authenticating to the Challonge API
-    challonge.set_credentials(reno_username, reno_api_key)
+    challonge.set_credentials(api_user, api_key)
     # The list we're going to return.
     new_data = []
-    # Match Data from the Tournament
-    match_data = challonge.matches.index(tourney_url)
     # User Data from the Tournament
     user_data = challonge.participants.index(tourney_url)
-    print(user_data)
     # Iterate through match_data, call get_challonge_name to get names of players.
     for match in match_data:
         # Temp object to use each iteration, grab player 1 and player 2 names
@@ -52,5 +50,4 @@ def get_challonge_name(id, tourney_url, user_data):
                 return user['challonge-username']
             # If not, return the name they used in the tournament.
             else:
-                print(user['name'])
                 return user['name']

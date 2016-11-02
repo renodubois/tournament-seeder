@@ -5,7 +5,6 @@ from bottle import (app, get, post, response, request, route, run, jinja2_view,
 from beaker.middleware import SessionMiddleware
 # local imports
 from app import ratings
-from app import tournaments
 from app import mongo
 from config.errors import UserNotExist
 from config.setup import smash4_characters, admins
@@ -159,18 +158,6 @@ def change_profile(username):
         redirect('/users/{}/'.format(username))
 
 
-@get('/ratings/')
-@jinja2_view('templates/ratings.html')
-def show_rankings():
-    # Get the most current ratings
-
-    # Remove any ratings w/ exactly 100.0, these are unranked/unrated
-    tournament = tournaments.convert_matches("rollasmash-rollatrash5")
-    # Return them to a template
-    print(tournament)
-    ratings.update_ratings(tournament)
-    return {}
-
 @get('/users/<username>/connect_challonge/')
 @jinja2_view('templates/connect_challonge.html')
 @load_alerts
@@ -227,6 +214,7 @@ sessionOptions = {
     'session.validate_key': 'super-secret'
 }
 smash_rankings = app()
+smash_rankings = SessionMiddleware(smash_rankings, sessionOptions)
 
 # Run the server:
 if __name__ == '__main__':
