@@ -1,5 +1,5 @@
 import challonge
-from config.challongeConfig import reno_username, reno_api_key
+from config.challonge_config import reno_username, reno_api_key
 
 challonge.set_credentials(reno_username, reno_api_key)
 domain = "rollasmashdev"

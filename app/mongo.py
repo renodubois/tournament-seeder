@@ -1,6 +1,6 @@
 import json
 from pymongo import MongoClient
-from config.databaseConfig import address, password, user, database_name, player_coll, results_coll, tourney_coll
+from config.database_config import address, password, user, database_name, player_coll, results_coll, tourney_coll
 
 
 class DataBaseInfoException(Exception):
